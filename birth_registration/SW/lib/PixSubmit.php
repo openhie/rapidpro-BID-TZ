@@ -28,6 +28,9 @@ class PixSumbit {
 	    curl_setopt($ch, CURLOPT_SSLKEY,$this->cert_private_key);
 	    curl_setopt($ch, CURLOPT_SSLKEYTYPE,"PEM"); 
 	}
+        if( $this->cert_cacert) {
+            curl_setopt($ch, CURLOPT_CAINFO,$this->cert_cacert);
+        }
 	if( $this->cert_client) {
 	    curl_setopt($ch, CURLOPT_SSLCERT, $this->cert_client);
 	    curl_setopt($ch, CURLOPT_SSLCERTTYPE,"PEM"); 
